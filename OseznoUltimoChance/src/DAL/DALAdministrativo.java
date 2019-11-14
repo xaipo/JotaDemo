@@ -20,7 +20,7 @@ public class DALAdministrativo extends Conexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
         boolean retorno = false;
-        String sql = "INSERT INTO usuarios (Identificacion, Telefono, Username, Pass, Correo, Estado) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO usuarios (strIdentificacion, strNombres, chrTipo, strDependencia) VALUES (?,?,?,?)";
         try {
             ps = con.prepareStatement(sql);
             ps.setString(1, adm.getStrIdentificacion());
