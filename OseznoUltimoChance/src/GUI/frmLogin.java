@@ -5,10 +5,12 @@
  */
 package GUI;
 
-import DAL.DALUsuario;
-import Models.Usuario;
+import DAL.DALAdministrativo;
+import Models.Administrativo;
+import parsingDB.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,6 +27,7 @@ public class frmLogin extends javax.swing.JFrame {
     public frmLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -43,6 +46,8 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        cmbDAL = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +75,10 @@ public class frmLogin extends javax.swing.JFrame {
 
         txtUsuario.setToolTipText("");
 
+        jLabel4.setText("DAL");
+
+        cmbDAL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Archivos Planos", "Base de Datos" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,15 +93,17 @@ public class frmLogin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel3)
-                                        .addComponent(jLabel2))
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                        .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                        .addComponent(cmbDAL, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,11 +119,15 @@ public class frmLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbDAL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(35, 35, 35)
                 .addComponent(btnLogin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnCancel)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
@@ -134,34 +149,64 @@ public class frmLogin extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(this, "Usuario/Password invalidos.");
                 }
             } else {
-                try {
-                    DALUsuario dALUsuario = new DALUsuario();
-                    ResultSet rs = dALUsuario.Buscar(user);
-
-                    if (rs.next()) {
-                        Usuario usr = new Usuario();
-                        usr.setCorreo(rs.getString("Correo"));
-                        usr.setEstado(rs.getInt("Estado"));
-                        usr.setIdentificación(rs.getString("Identificacion"));
-                        usr.setNombres(rs.getString("Nombres"));
-                        usr.setPassword(rs.getString("Pass"));
-                        usr.setTelefono(rs.getString("Telefono"));
-                        usr.setUsername(rs.getString("Username"));
-
-                        if (usr.getPassword().equals(pass)) {
-                            JOptionPane.showMessageDialog(this, "Bienvenido: " + usr.getNombres());
-                            frmSistemaCon sistemaCon = new frmSistemaCon();
+                //Si DAL es txt
+                String tipoDal = cmbDAL.getSelectedItem().toString();
+                if (tipoDal == "Archivos Planos") {
+                    txtParsing p = new txtParsing();
+                    ArrayList<Administrativo> lstAdmins = new ArrayList<>();
+                    boolean flagUserFind = false;
+                    Administrativo admObjFind = new Administrativo();
+                    for (Administrativo adm : p.lstAdministrativosObj) {
+                        if (adm.getStrIdentificacion() != null && adm.getStrIdentificacion().contains(user)) {
+                            admObjFind = adm;
+                            flagUserFind = true;
+                            break;
+                        }
+                    }
+                    if (flagUserFind) {
+                        if (admObjFind.getPass().equals(pass)) {
+                            JOptionPane.showMessageDialog(this, "Bienvenido: " + admObjFind.getStrNombres());
+                            frmPrincipal sistemaCon = new frmPrincipal();
                             sistemaCon.setVisible(true);
+                            
                         } else {
-                            JOptionPane.showMessageDialog(this, "Credenciales invalidas.");
+                            JOptionPane.showMessageDialog(this, "Usuario/Password invalidos.");
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "Usuario no existe");
+                        JOptionPane.showMessageDialog(this, "Usuario/Password invalidos.");
                     }
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    
+                } else {
+                    //Si DAL es DataBase
+                    try {
+                        DALAdministrativo dALUsuario = new DALAdministrativo();
+                        ResultSet rs = dALUsuario.SearchAdministrativo(user);
+                        
+                        if (rs.next()) {
+                            Administrativo adm = new Administrativo();
+                            adm.setIntPersona(rs.getInt("intPersona"));
+                            adm.setStrIdentificacion(rs.getString("strIdentificacion"));
+                            adm.setStrNombres(rs.getString("strNombres"));
+                            adm.setChrTipo(rs.getString("chrTipo"));
+                            adm.setStrDependencia(rs.getString("strDependencia"));
+                            adm.setPass(rs.getString("pass"));
+                            
+                            if (adm.getPass().equals(pass)) {
+                                JOptionPane.showMessageDialog(this, "Bienvenido: " + adm.getStrNombres());
+                                frmPrincipal sistemaCon = new frmPrincipal();
+                                sistemaCon.setVisible(true);
+                            } else {
+                                JOptionPane.showMessageDialog(this, "Credenciales invalidas.");
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Usuario no existe");
+                        }
+                        
+                    } catch (SQLException ex) {
+                        Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
+                
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -209,9 +254,11 @@ public class frmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JComboBox cmbDAL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
