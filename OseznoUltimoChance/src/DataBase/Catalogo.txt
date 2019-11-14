@@ -1,0 +1,5 @@
+idCatalogo:estados, descripcionCat:Catalogo estados del sistema, estadoCat: 1;
+idCatalogo:sexos, descripcionCat:Catalogo sexos del sistema, estadoCat: 1;
+idCatalogo:Cat1, descripcionCat:desc1, estadoCat:1;
+idCatalogo:Cat2, descripcionCat:desc2, estadoCat:1;
+idCatalogo:provincias, descripcionCat:catalogo de provincias Ecuador, estadoCat:1;

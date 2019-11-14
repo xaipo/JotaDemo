@@ -1,0 +1,7 @@
+idCatalogo:estados, idItemCatalogo:1, descripcionItemC:Activo, estadoItemC:1;
+idCatalogo:estados, idItemCatalogo:2, descripcionItemC:Inactivo, estadoItemC:1;
+idCatalogo:sexos, idItemCatalogo:3, descripcionItemC:Masculino, estadoItemC:1;
+idCatalogo:sexos, idItemCatalogo:4, descripcionItemC:Femenino, estadoItemC:1;
+idCatalogo:Cat1, idItemCatalogo:5, descripcionItemC:ele 1, estadoItemC:1:
+idCatalogo:Cat1, idItemCatalogo:6, descripcionItemC:ele 2, estadoItemC:1:
+idCatalogo:provincias, idItemCatalogo:7, descripcionItemC:Azuay, estadoItemC:1:
