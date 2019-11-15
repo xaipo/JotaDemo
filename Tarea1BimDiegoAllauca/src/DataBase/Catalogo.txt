@@ -1,0 +1,5 @@
+idCatalogo:estados, descripcionCat:Catalogo estados del sistema, estadoCat: 1;
+idCatalogo:sexos, descripcionCat:Catalogo sexos del sistema, estadoCat: 1;
+idCatalogo:Depencias, descripcionCat:Catalogo de dependencias de la institucion, estadoCat:1;
+idCatalogo:Ciudades, descripcionCat:Catlogo de ciudades del Ecuador, estadoCat:1;
+idCatalogo:Titulacion, descripcionCat:Catalogo de las carreras, estadoCat:1;

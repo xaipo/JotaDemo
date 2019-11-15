@@ -1,0 +1,6 @@
+intEscenario: 1, strNombre: CANCHA SINTETICA DE FUTBOL;
+intEscenario: 2, strNombre: CANCHA DE BASKET POLIDEPORTIVO;
+intEscenario: 3, strNombre: CANCHA DE BASKET CEMENTO 1;
+intEscenario: 4, strNombre: CANCHA DE BASKET CEMENTO 2;
+intEscenario: 5, strNombre: CANCHA DE BASKET CEMENTO 3;
+intEscenario: 6, strNombre: PISTA ATLETICA;

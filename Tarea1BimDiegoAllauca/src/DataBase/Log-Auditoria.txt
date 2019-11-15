@@ -1,0 +1,1 @@
+intAuditoria: 1, strFecha: 10/09/2019, strHora: 15:20, Usuario: 0502926819, strAccion: INGRESO AL SISTEMA;

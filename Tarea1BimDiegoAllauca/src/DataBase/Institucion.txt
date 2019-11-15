@@ -1,0 +1,1 @@
+intIdinstitucion: 1, strCodigo: Cod0890, strNombre: UTPL, strDireccion: Av. Antonio Jose de Sucre y 10 de Agosto, strFono: 0987327418, strCiudad: Riobamba;

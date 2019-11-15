@@ -1,0 +1,6 @@
+intPersona: 1, strIdentificacion: 0702210493, strNombres: Leo Munoz, chrTipo: 1, strTitulacion: Ing. Sistemas, intCiclo: 2;
+intPersona: 2, strIdentificacion: 0601451347, strNombres: Ivana, chrTipo: 2, strTitulacion: Administracion de Empresas, intCiclo: 3;
+intPersona: 3, strIdentificacion: 0502926827, strNombres: Milena, chrTipo: 2, strTitulacion: Ing. Ambiental, intCiclo: 1;
+intPersona: 4, strIdentificacion: 1203526854, strNombres: Rocio, chrTipo: 2, strTitulacion: Ing. Mecanica, intCiclo: 9;
+intPersona: 5, strIdentificacion: 0809562844, strNombres: Tamara, chrTipo: 2, strTitulacion: Medicina, intCiclo: 6;
+intPersona: 6, strIdentificacion: 1905684983, strNombres: Victoria, chrTipo: 2, strTitulacion: Ing. Electronica, intCiclo: 4;

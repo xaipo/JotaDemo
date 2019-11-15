@@ -1,0 +1,18 @@
+idCatalogo:estados, idItemCatalogo:1, descripcionItemC:Activo, estadoItemC:1;
+idCatalogo:estados, idItemCatalogo:2, descripcionItemC:Inactivo, estadoItemC:1;
+idCatalogo:sexos, idItemCatalogo:3, descripcionItemC:Masculino, estadoItemC:1;
+idCatalogo:sexos, idItemCatalogo:4, descripcionItemC:Femenino, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:5, descripcionItemC:Rectorado, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:6, descripcionItemC:Admisiones, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:7, descripcionItemC:RRHH, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:8, descripcionItemC:Tesoreria, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:9, descripcionItemC:Educacion Fisica, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:10, descripcionItemC:Postgrado, estadoItemC:1;
+idCatalogo:Depencias, idItemCatalogo:11, descripcionItemC:Academias, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:12, descripcionItemC:Ing. Sistemas, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:13, descripcionItemC:Administracion de Empresas, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:14, descripcionItemC:Ing. Ambiental, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:15, descripcionItemC:Ing. Mecanica, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:16, descripcionItemC:Medicina, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:17, descripcionItemC:Ing. Electronica, estadoItemC:1;
+idCatalogo:Titulacion, idItemCatalogo:18, descripcionItemC:Ing. de Alimentos, estadoItemC:1;

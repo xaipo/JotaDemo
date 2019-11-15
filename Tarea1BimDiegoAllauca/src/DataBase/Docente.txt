@@ -1,0 +1,4 @@
+intPersona: 1, strIdentificacion: 0700710492, strNombres: Leo Munoz, chrTipo: 1, strDepartamento: DTIC;
+intPersona: 2, strIdentificacion: 0809010491, strNombres: Leo Munoz, chrTipo: 1, strDepartamento: Dpto. Bienestar Estudiantil;
+intPersona: 3, strIdentificacion: 0405210490, strNombres: Leo Munoz, chrTipo: 1, strDepartamento: Dpto. de Matematica;
+intPersona: 4, strIdentificacion: 0503421046, strNombres: Leo Munoz, chrTipo: 1, strDepartamento: Dpto. de Fisica;
