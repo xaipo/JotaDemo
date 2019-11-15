@@ -1,6 +1,6 @@
 intPersona: 1, strIdentificacion: 0502926819, strNombres: Leo Munoz, chrTipo: 1, strDependencia: Rectoria, pass:161ebd7d45089b3446ee4e0d86dbcf92;
-intPersona: 1, strIdentificacion: 0702926818, strNombres: Ivana, chrTipo: 2, strDependencia: Admision, pass:161ebd7d45089b3446ee4e0d86dbcf92;
-intPersona: 1, strIdentificacion: 2302926819, strNombres: Milena, chrTipo: 2, strDependencia: RRHH, pass:161ebd7d45089b3446ee4e0d86dbcf92;
-intPersona: 1, strIdentificacion: 3402926885, strNombres: Rocio, chrTipo: 2, strDependencia: Tesoreria, pass:161ebd7d45089b3446ee4e0d86dbcf92;
-intPersona: 1, strIdentificacion: 5202926833, strNombres: Tamara, chrTipo: 2, strDependencia: Educacion Fisica, pass:161ebd7d45089b3446ee4e0d86dbcf92;
-intPersona: 1, strIdentificacion: 7502926820, strNombres: Victoria, chrTipo: 2, strDependencia: Postgrado, pass:161ebd7d45089b3446ee4e0d86dbcf92;
+intPersona: 2, strIdentificacion: 0702926818, strNombres: Ivana, chrTipo: 2, strDependencia: Admision, pass:161ebd7d45089b3446ee4e0d86dbcf92;
+intPersona: 3, strIdentificacion: 2302926819, strNombres: Milena, chrTipo: 2, strDependencia: RRHH, pass:161ebd7d45089b3446ee4e0d86dbcf92;
+intPersona: 4, strIdentificacion: 3402926885, strNombres: Rocio, chrTipo: 2, strDependencia: Tesoreria, pass:161ebd7d45089b3446ee4e0d86dbcf92;
+intPersona: 5, strIdentificacion: 5202926833, strNombres: Tamara, chrTipo: 2, strDependencia: Educacion Fisica, pass:161ebd7d45089b3446ee4e0d86dbcf92;
+intPersona: 6, strIdentificacion: 7502926820, strNombres: Victoria, chrTipo: 2, strDependencia: Postgrado, pass:161ebd7d45089b3446ee4e0d86dbcf92;
