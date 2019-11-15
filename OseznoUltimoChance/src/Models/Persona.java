@@ -25,6 +25,9 @@ public class Persona implements Serializable{
         this.chrTipo = strTipo;
     }
 
+    public Persona() {
+    }
+
     public int getIntPersona() {
         return intPersona;
     }

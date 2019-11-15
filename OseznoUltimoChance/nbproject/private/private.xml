@@ -3,21 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/personal/OseznoUltimoChance/src/DataBase/Item-Catalogo.txt</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/GUI/frmLogin.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Escenario.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Persona.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/GUI/frmPrincipal.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/DAL/Conexion.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Institucion.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/parsingDB/CatalogosFormatter.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/oseznoultimochance/OseznoUltimoChance.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Administrativo.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Alumno.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/ItemCatalogo.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Docente.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Catalogo.java</file>
-            <file>file:/C:/personal/OseznoUltimoChance/src/Models/Prestamo.java</file>
+            <file>file:/C:/personal/JotaDemo/OseznoUltimoChance/src/Utils/EncripterManager.java</file>
+            <file>file:/C:/personal/JotaDemo/OseznoUltimoChance/src/DataBase/Aministrativo.txt</file>
+            <file>file:/C:/personal/JotaDemo/OseznoUltimoChance/src/parsingDB/txtParsing.java</file>
+            <file>file:/C:/personal/JotaDemo/OseznoUltimoChance/src/GUI/frmPrincipal.java</file>
+            <file>file:/C:/personal/JotaDemo/OseznoUltimoChance/src/GUI/frmLogin.java</file>
+            <file>file:/C:/personal/JotaDemo/OseznoUltimoChance/src/GUI/frmUsuarios.java</file>
         </group>
     </open-files>
 </project-private>

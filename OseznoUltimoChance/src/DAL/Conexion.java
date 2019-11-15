@@ -17,17 +17,17 @@ import java.util.logging.Logger;
  */
 public class Conexion {
 
-    private final String base = "Rio_Contable";
-    private final String usuario = "sa";
-    private final String clave = "E@sysoft";
+    private final String base = "Escenario";
+    private final String usuario = "admin";
+    private final String clave = "123456";
 
     private Connection con = null;
 
     public Connection getConexion()  {
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            //con = (Connection) DriverManager.getConnection(this.url, this.usuario, this.clave);
-            con = (Connection) DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=" + base, usuario, clave);
+            Class.forName("org.postgresql.Driver");
+            con = (Connection) DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + base, usuario, clave);
+            System.out.println("Connected to PostgreSQL database!");
         } catch (SQLException e) {
             System.err.println(e);
         } catch (ClassNotFoundException ex) {
