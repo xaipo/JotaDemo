@@ -8,6 +8,7 @@ package GUI;
 import DAL.DALAdministrativo;
 import Models.Administrativo;
 import parsingDB.*;
+import Utils.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
 
-        jLabel2.setText("Usuario");
+        jLabel2.setText("Identificacion");
 
         jLabel3.setText("Contraseña");
 
@@ -104,7 +105,7 @@ public class frmLogin extends javax.swing.JFrame {
                                         .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                                         .addComponent(cmbDAL, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,7 +152,7 @@ public class frmLogin extends javax.swing.JFrame {
             } else {
                 //Si DAL es txt
                 String tipoDal = cmbDAL.getSelectedItem().toString();
-                if (tipoDal == "Archivos Planos") {
+                if ("Archivos Planos".equals(tipoDal)) {
                     txtParsing p = new txtParsing();
                     ArrayList<Administrativo> lstAdmins = new ArrayList<>();
                     boolean flagUserFind = false;
@@ -164,7 +165,7 @@ public class frmLogin extends javax.swing.JFrame {
                         }
                     }
                     if (flagUserFind) {
-                        if (admObjFind.getPass().equals(pass)) {
+                        if (admObjFind.getPass().equals(EncripterManager.encryptKey(pass))) {
                             JOptionPane.showMessageDialog(this, "Bienvenido: " + admObjFind.getStrNombres());
                             frmPrincipal sistemaCon = new frmPrincipal();
                             sistemaCon.setVisible(true);
@@ -191,7 +192,7 @@ public class frmLogin extends javax.swing.JFrame {
                             adm.setStrDependencia(rs.getString("strDependencia"));
                             adm.setPass(rs.getString("pass"));
                             
-                            if (adm.getPass().equals(pass)) {
+                            if (adm.getPass().equals(EncripterManager.encryptKey(pass))) {
                                 JOptionPane.showMessageDialog(this, "Bienvenido: " + adm.getStrNombres());
                                 frmPrincipal sistemaCon = new frmPrincipal();
                                 sistemaCon.setVisible(true);
