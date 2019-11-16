@@ -4,3 +4,5 @@ intPersona: 3, strIdentificacion: 0502926827, strNombres: Milena, chrTipo: 2, st
 intPersona: 4, strIdentificacion: 1203526854, strNombres: Rocio, chrTipo: 2, strTitulacion: Ing. Mecanica, intCiclo: 9;
 intPersona: 5, strIdentificacion: 0809562844, strNombres: Tamara, chrTipo: 2, strTitulacion: Medicina, intCiclo: 6;
 intPersona: 6, strIdentificacion: 1905684983, strNombres: Victoria, chrTipo: 2, strTitulacion: Ing. Electronica, intCiclo: 4;
+intPersona:0, strIdentificacion: 0600088216, strNombres: Prueba alumno, chrTipo: 2, strTitulacion: Algun titulo, intCiclo: 1;
+intPersona:0, strIdentificacion: 0600345674, strNombres: Xairo, chrTipo: 2, strTitulacion: Sistemas, intCiclo: 1;
