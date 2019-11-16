@@ -252,6 +252,8 @@ public class frmUsuarios extends javax.swing.JFrame {
     }
 
     public void fillTableCat() {
+        totalAdmin = 0;
+        totalSec = 0;
         try {
             Object columnas[] = {"Nombres", "Identificacion", "Tipo", "Dependencia"};
             DefaultTableModel modelo = new DefaultTableModel(null, columnas);
@@ -261,24 +263,32 @@ public class frmUsuarios extends javax.swing.JFrame {
             String name = oldModel.getColumnName(1);
             if (name.equals("Title 2")) {
                 tblUsers.setModel(modelo);
+                for (Administrativo objUsr : txtParsing1.lstAdministrativosObj) {
+                    String nombres = String.valueOf(objUsr.getStrNombres());
+                    String identificacion = String.valueOf(objUsr.getStrIdentificacion());
+                    String tipo = objUsr.getChrTipo();
+                    String tipoString = tipo.equals("1") ? "Administrador" : "Secretaria";
+                    String dependencia = String.valueOf(objUsr.getStrDependencia());
+                    String modeloTemp[] = {nombres, identificacion, tipoString, dependencia};
+                    modelo.addRow(modeloTemp);
+                    if (Integer.parseInt(tipo) == 1) {
+                        totalAdmin++;
+                    } else {
+                        totalSec++;
+                    }
+                }
+                this.pack();
             } else {
-                modelo.setRowCount(0);
-            }
-            for (Administrativo objUsr : txtParsing1.lstAdministrativosObj) {
-                String nombres = String.valueOf(objUsr.getStrNombres());
-                String identificacion = String.valueOf(objUsr.getStrIdentificacion());
-                String tipo = objUsr.getChrTipo();
-                String tipoString = tipo.equals("1") ? "Administrador" : "Secreataria";
-                String dependencia = String.valueOf(objUsr.getStrDependencia());
+                String nombres = "asd";
+                String identificacion = "asd";
+                String tipoString = "asd";
+                String dependencia = "asd";
                 String modeloTemp[] = {nombres, identificacion, tipoString, dependencia};
                 modelo.addRow(modeloTemp);
-                if (Integer.parseInt(tipo) == 1) {
-                    totalAdmin++;
-                } else {
-                    totalSec++;
-                }
+                this.pack();
+                modelo.fireTableDataChanged();
             }
-            this.pack();
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.toString());
         }
