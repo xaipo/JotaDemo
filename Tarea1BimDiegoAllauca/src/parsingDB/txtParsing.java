@@ -328,6 +328,10 @@ public final class txtParsing {
             return false;
         }
     }
+    
+   /* public boolean updateAdministrativo(lstAdminss<adm>){
+        return false;
+    }*/
 
     public boolean writeDataAlumnos(Alumno alm) {
         try {

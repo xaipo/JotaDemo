@@ -12,6 +12,9 @@ import javax.swing.table.DefaultTableModel;
 import parsingDB.*;
 import Models.*;
 import Utils.*;
+import javax.swing.JTable;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -59,6 +62,8 @@ public class frmUsuarios extends javax.swing.JFrame {
         tblUsers = new javax.swing.JTable();
         cmbDepen = new javax.swing.JComboBox();
         cmbTipo = new javax.swing.JComboBox();
+        btnClean1 = new javax.swing.JButton();
+        btnClean2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,7 +116,26 @@ public class frmUsuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblUsers.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblUsersMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblUsers);
+
+        btnClean1.setText("Actualizar");
+        btnClean1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClean1ActionPerformed(evt);
+            }
+        });
+
+        btnClean2.setText("Eliminar");
+        btnClean2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClean2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,18 +160,23 @@ public class frmUsuarios extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnClean, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cmbDepen, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnClean1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(btnClean2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombre)
                             .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -170,11 +199,14 @@ public class frmUsuarios extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDescCat3)
-                            .addComponent(cmbDepen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 52, 52)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave)
-                            .addComponent(btnClean))))
+                            .addComponent(cmbDepen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnClean)
+                    .addComponent(btnClean1)
+                    .addComponent(btnClean2))
                 .addGap(26, 26, 26))
         );
 
@@ -194,7 +226,7 @@ public class frmUsuarios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,9 +235,9 @@ public class frmUsuarios extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
                 .addComponent(jButton3)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -220,24 +252,46 @@ public class frmUsuarios extends javax.swing.JFrame {
     }
 
     public void fillTableCat() {
-        Object columnas[] = {"Nombres", "Identificacion", "Tipo", "Dependencia"};
-        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
-        tblUsers.setModel(modelo);
-        for (Administrativo objUsr : txtParsing1.lstAdministrativosObj) {
-            String nombres = String.valueOf(objUsr.getStrNombres());
-            String identificacion = String.valueOf(objUsr.getStrIdentificacion());
-            String tipo = objUsr.getChrTipo();
-            String tipoString = tipo.equals("Secretaria") ? "2" : "1";
-            String dependencia = String.valueOf(objUsr.getStrDependencia());
-            String modeloTemp[] = {nombres, identificacion, tipoString, dependencia};
-            modelo.addRow(modeloTemp);
-            if (Integer.parseInt(tipo) == 1) {
-                totalAdmin++;
+        totalAdmin = 0;
+        totalSec = 0;
+        try {
+            Object columnas[] = {"Nombres", "Identificacion", "Tipo", "Dependencia"};
+            DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+
+            DefaultTableModel oldModel = (DefaultTableModel) tblUsers.getModel();
+            //oldModel.setRowCount(0);
+            String name = oldModel.getColumnName(1);
+            if (name.equals("Title 2")) {
+                tblUsers.setModel(modelo);
+                for (Administrativo objUsr : txtParsing1.lstAdministrativosObj) {
+                    String nombres = String.valueOf(objUsr.getStrNombres());
+                    String identificacion = String.valueOf(objUsr.getStrIdentificacion());
+                    String tipo = objUsr.getChrTipo();
+                    String tipoString = tipo.equals("1") ? "Administrador" : "Secretaria";
+                    String dependencia = String.valueOf(objUsr.getStrDependencia());
+                    String modeloTemp[] = {nombres, identificacion, tipoString, dependencia};
+                    modelo.addRow(modeloTemp);
+                    if (Integer.parseInt(tipo) == 1) {
+                        totalAdmin++;
+                    } else {
+                        totalSec++;
+                    }
+                }
+                this.pack();
             } else {
-                totalSec++;
+                String nombres = "asd";
+                String identificacion = "asd";
+                String tipoString = "asd";
+                String dependencia = "asd";
+                String modeloTemp[] = {nombres, identificacion, tipoString, dependencia};
+                modelo.addRow(modeloTemp);
+                this.pack();
+                modelo.fireTableDataChanged();
             }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.toString());
         }
-        this.pack();
     }
 
     public void formatCatalogos() {
@@ -299,9 +353,86 @@ public class frmUsuarios extends javax.swing.JFrame {
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
         this.txtNombres.setText("");
         this.txtIdent.setText("");
-        //this.txtTipo.setText("");
+        this.cmbTipo.setSelectedIndex(0);
+        this.cmbDepen.setSelectedIndex(0);
         this.txtPass.setText("");
     }//GEN-LAST:event_btnCleanActionPerformed
+
+    Administrativo admFind = null;
+    private void tblUsersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUsersMouseClicked
+        tblUsers.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                // print first column value from selected row
+                String ci = tblUsers.getValueAt(tblUsers.getSelectedRow(), 1).toString();
+                admFind = new Administrativo();
+                admFind = getAdminById(ci);
+
+                txtNombres.setText(admFind.getStrNombres());
+                txtIdent.setText(admFind.getStrIdentificacion());
+                Object tipo = "2".equals(admFind.getChrTipo()) ? "Secretaria" : "Administrador";
+                cmbTipo.setSelectedItem(tipo);
+                Object depen = admFind.getStrDependencia();
+                cmbDepen.setSelectedItem(depen);
+                //JOptionPane.showMessageDialog(null, tblUsers.getValueAt(tblUsers.getSelectedRow(), 0).toString());
+            }
+        });
+    }//GEN-LAST:event_tblUsersMouseClicked
+
+    private void btnClean1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClean1ActionPerformed
+        // TODO add your handling code here:
+        if (admFind == null) {
+            JOptionPane.showMessageDialog(null, "Selecciona un usuario a actualizar!");
+        } else {
+            //Buscar en lista y actulizar el usuario
+            int index = getAdminByIdNum(admFind.getStrIdentificacion());
+            //Actulizar de la lista recogiendo valores nuevos
+
+            String identificacion = this.txtIdent.getText();
+            String nombres = this.txtNombres.getText();
+            String tipo = this.cmbTipo.getSelectedItem().toString();
+            String tipoInt = tipo.equals("Secretaria") ? "2" : "1";
+            String dependencia = this.cmbDepen.getSelectedItem().toString();
+            String pass = String.valueOf(this.txtPass.getPassword());
+            String passEnc = EncripterManager.encryptKey(pass);
+
+            Administrativo admNew = new Administrativo();
+            admNew.setIntPersona((totalAdmin + totalSec) + 1);
+            admNew.setStrIdentificacion(identificacion);
+            admNew.setStrNombres(nombres);
+            admNew.setChrTipo(tipoInt);
+            admNew.setStrDependencia(dependencia);
+            admNew.setPass(passEnc);
+
+            txtParsing1.lstAdministrativosObj.set(index, admNew);
+            this.initialize();
+            JOptionPane.showMessageDialog(this, "Actualizacion Exitosa.");
+        }
+    }//GEN-LAST:event_btnClean1ActionPerformed
+
+    private void btnClean2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClean2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnClean2ActionPerformed
+
+    public Administrativo getAdminById(String ci) {
+        for (Administrativo adm : txtParsing1.lstAdministrativosObj) {
+            if (adm.getStrIdentificacion().equals(ci)) {
+                return adm;
+            }
+        }
+        return null;
+    }
+
+    public int getAdminByIdNum(String ci) {
+        int i = 0;
+        for (Administrativo adm : txtParsing1.lstAdministrativosObj) {
+            if (adm.getStrIdentificacion().equals(ci)) {
+                return i;
+            }
+            i++;
+        }
+        return i;
+    }
 
     /**
      * @param args the command line arguments
@@ -340,6 +471,8 @@ public class frmUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClean;
+    private javax.swing.JButton btnClean1;
+    private javax.swing.JButton btnClean2;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox cmbDepen;
     private javax.swing.JComboBox cmbTipo;
