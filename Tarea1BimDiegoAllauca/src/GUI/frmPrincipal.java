@@ -5,9 +5,11 @@
  */
 package GUI;
 
+import Models.Administrativo;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,10 +17,11 @@ import javax.swing.JScrollPane;
  */
 public class frmPrincipal extends javax.swing.JFrame {
 
+    String cedula;
     /**
      * Creates new form frmPrincipal
      */
-    public frmPrincipal() {
+    public frmPrincipal(String cedula) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon ii = new ImageIcon("./src/Images/UTPL-FONDO-AZUL.jpg");
@@ -26,9 +29,14 @@ public class frmPrincipal extends javax.swing.JFrame {
         JScrollPane jsp = new JScrollPane(lable);
         this.getContentPane().add(jsp);
         this.setSize(1000, 700);
+        this.cedula=cedula;
 
     }
 
+    
+    
+      
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,8 +75,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
 
         jButton3.setText("Gestion de Prestamos");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Gestion de Actores");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Gestion de Accesos");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +137,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        frmEscenarios sistemaCon = new frmEscenarios();
+        sistemaCon.setVisible(true);
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -130,6 +151,18 @@ public class frmPrincipal extends javax.swing.JFrame {
         frmUsuarios sistemaCon = new frmUsuarios();
         sistemaCon.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        frmActores sistemaCon = new frmActores();
+        sistemaCon.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        frmPrestamos sistemaCon = new frmPrestamos(this.cedula);
+        sistemaCon.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,7 +194,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmPrincipal().setVisible(true);
+                new frmPrincipal(null).setVisible(true);
             }
         });
     }

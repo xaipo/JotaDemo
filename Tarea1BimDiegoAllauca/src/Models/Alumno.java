@@ -12,12 +12,16 @@ package Models;
 public class Alumno extends Persona{
     private static final long serialVersionUID = 1L;
     String strTitulacion;
+    String fechaNacimiento;
+    String chrTipo;
     int intCiclo;
 
-    public Alumno(String strTitulacion, int intCiclo, int intPersona, String strIdentificacion, String strNombres, String strTipo) {
+    public Alumno(String strTitulacion, int intCiclo, int intPersona, String strIdentificacion, String strNombres, String strTipo, String fechaNacimiento,String chrTipo) {
         super(intPersona, strIdentificacion, strNombres, strTipo);
         this.strTitulacion = strTitulacion;
+         this.fechaNacimiento = fechaNacimiento;
         this.intCiclo = intCiclo;
+        this.chrTipo = chrTipo;
     }
 
     public Alumno() {
@@ -35,6 +39,13 @@ public class Alumno extends Persona{
         return intCiclo;
     }
 
+     public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+    public String getchrTipo() {
+        return chrTipo;
+    }
+    
     public void setIntCiclo(int intCiclo) {
         this.intCiclo = intCiclo;
     }

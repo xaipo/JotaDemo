@@ -1,1 +1,4 @@
 usuario: 0502926819, escenario:CANCHA DE BASKET POLIDEPORTIVO, actor: 0702210493|Lucas Ocampo;
+usuario:0502926819, escenario: Docente, actor: 3;
+usuario:0502926819, escenario: PISTA ATLETICA, actor: 0809562844|Tamara;
+usuario:0502926819, escenario: PISTA ATLETICA, actor: 0600088216|Prueba alumno;

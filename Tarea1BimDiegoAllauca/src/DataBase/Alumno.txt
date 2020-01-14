@@ -6,3 +6,6 @@ intPersona: 5, strIdentificacion: 0809562844, strNombres: Tamara, chrTipo: 2, st
 intPersona: 6, strIdentificacion: 1905684983, strNombres: Victoria, chrTipo: 2, strTitulacion: Ing. Electronica, intCiclo: 4;
 intPersona:0, strIdentificacion: 0600088216, strNombres: Prueba alumno, chrTipo: 2, strTitulacion: Algun titulo, intCiclo: 1;
 intPersona:0, strIdentificacion: 0600345674, strNombres: Xairo, chrTipo: 2, strTitulacion: Sistemas, intCiclo: 1;
+intPersona:0, strIdentificacion: 064009381, strNombres: qwe, chrTipo: 2, strTitulacion: ttt, intCiclo: 1;
+intPersona:0, strIdentificacion: 123123, strNombres: qweqwe, chrTipo: 2, strTitulacion: wewadas, intCiclo: 1;
+intPersona:0, strIdentificacion: 0612312312, strNombres: qwe, chrTipo: 3, strTitulacion: asdads, intCiclo: 1;

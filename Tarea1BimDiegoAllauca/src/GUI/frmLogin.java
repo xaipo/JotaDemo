@@ -138,7 +138,7 @@ public class frmLogin extends javax.swing.JFrame {
             if (user.equalsIgnoreCase("admin")) {
                 if (pass.equalsIgnoreCase("admin")) {
                     JOptionPane.showMessageDialog(this, "Bienvenid@ admin");
-                    frmPrincipal prin = new frmPrincipal();
+                    frmPrincipal prin = new frmPrincipal(null);
                     this.dispose();
                     prin.setVisible(true);
                 } else {
@@ -161,7 +161,7 @@ public class frmLogin extends javax.swing.JFrame {
                     if (flagUserFind) {
                         if (admObjFind.getPass().equals(EncripterManager.encryptKey(pass))) {
                             JOptionPane.showMessageDialog(this, "Bienvenido: " + admObjFind.getStrNombres());
-                            frmPrincipal sistemaCon = new frmPrincipal();
+                            frmPrincipal sistemaCon = new frmPrincipal(admObjFind.getStrIdentificacion());
                             sistemaCon.setVisible(true);
                             
                         } else {
@@ -188,7 +188,7 @@ public class frmLogin extends javax.swing.JFrame {
                             
                             if (adm.getPass().equals(EncripterManager.encryptKey(pass))) {
                                 JOptionPane.showMessageDialog(this, "Bienvenido: " + adm.getStrNombres());
-                                frmPrincipal sistemaCon = new frmPrincipal();
+                                frmPrincipal sistemaCon = new frmPrincipal(null);
                                 sistemaCon.setVisible(true);
                             } else {
                                 JOptionPane.showMessageDialog(this, "Credenciales invalidas.");

@@ -5,6 +5,12 @@
  */
 package GUI;
 
+import Models.Alumno;
+import Models.Escenario;
+import Models.Prestamo;
+import javax.swing.table.DefaultTableModel;
+import parsingDB.txtParsing;
+
 /**
  *
  * @author User
@@ -14,10 +20,26 @@ public class frmPrestamos extends javax.swing.JFrame {
     /**
      * Creates new form frmPrestamos
      */
-    public frmPrestamos() {
+    txtParsing txtParsing1;
+    txtParsing txtParsing2;
+    txtParsing txtParsing3;
+    String cedula;
+    public frmPrestamos(String cedula) {
         initComponents();
+        initialize();
+        this.cedula=cedula;
     }
+    private void initialize() {
+        txtParsing1 = new txtParsing("esc");
+        txtParsing2 = new txtParsing("alm");
+        txtParsing3 = new txtParsing("Pre");
 
+
+
+        formatCatalogos();
+        fillTableCat();
+     
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +49,238 @@ public class frmPrestamos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        btnSave = new javax.swing.JButton();
+        lblNombre = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblUsers = new javax.swing.JTable();
+        txtIdent1 = new javax.swing.JTextField();
+        txtIdent2 = new javax.swing.JTextField();
+        lblNombre1 = new javax.swing.JLabel();
+        cmbTipo = new javax.swing.JComboBox();
+        cmbTipo1 = new javax.swing.JComboBox();
+        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Usuario"));
+
+        btnSave.setText("Guardar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
+        lblNombre.setText("Escenarios:");
+
+        tblUsers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblUsers);
+
+        lblNombre1.setText("Actores:");
+
+        cmbTipo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipo1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblNombre1)
+                        .addGap(31, 31, 31)
+                        .addComponent(cmbTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(173, 173, 173)
+                        .addComponent(lblNombre)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbTipo1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(382, 382, 382)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtIdent2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre1)
+                    .addComponent(lblNombre)
+                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbTipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(btnSave)
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtIdent1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(txtIdent2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("PRESTAMOS");
+
+        jButton3.setText("Volver");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(435, 435, 435)
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void fillTableCat() {
+        Object columnas[] = {"Usuario", "Escenario", "Actor"};
+        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
+        tblUsers.setModel(modelo);
+        for ( Prestamo objUsr : txtParsing3.lstPrestamosObj) {
+            String user = String.valueOf(objUsr.getUsuario());
+            String actor = String.valueOf(objUsr.getActor());
+            String scenary = String.valueOf(objUsr.getEscenario());
 
+            String modeloTemp[] = {user, scenary,actor};
+            modelo.addRow(modeloTemp);
+            
+        }
+        this.pack();
+    }
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+
+        String[] actor= String.valueOf(this.cmbTipo.getSelectedItem()).split("-");
+        String[] escenario= String.valueOf(this.cmbTipo1.getSelectedItem()).split("-");
+        Prestamo pres = new Prestamo();
+        pres.setActor(actor[0]);
+        pres.setEscenario(escenario[1]);
+        pres.setUsuario(this.cedula);
+        txtParsing3.writeDataPrestamos(pres);
+        this.initialize();
+        
+        
+        
+//        String nombre = this.txtNombres.getText();
+//        String code = this.txtNombres1.getText();
+//        Escenario escenario= new Escenario();
+//        escenario.setIntEscenario(Integer.valueOf(code));
+//        escenario.setStrNombre(nombre);
+//        txtParsing1.writeDataEscenarios(escenario);
+//        JOptionPane.showMessageDialog(this, "Ingreso Exitoso.");
+//        this.initialize();
+        //        Alumno alumno = new Alumno();
+        //        alumno.setStrNombres(nombre);
+        //        alumno.setStrIdentificacion(identificacion);
+        //        alumno.setStrTitulacion(titulacion);
+        //        tipo++;
+        //        alumno.setChrTipo(tipo+"");
+        //        alumno.setIntCiclo(Integer.parseInt(identificacion));
+        //        alumno.setIntCiclo(1);
+        //
+        //        txtParsing1.writeDataAlumnos(alumno);
+        //
+        //        JOptionPane.showMessageDialog(this, "Ingreso Exitoso.");
+        //        this.initialize();
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cmbTipo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipo1ActionPerformed
+    public void formatCatalogos() 
+    {
+        for ( Alumno objUsr : txtParsing2.lstAlumnosObj) {
+            String nombres = String.valueOf(objUsr.getStrNombres());
+            String identificacion = String.valueOf(objUsr.getStrIdentificacion());
+            String tipo = objUsr.getChrTipo();
+            String tipoString = "";
+            switch (tipo){
+                case ("1" ) :   tipoString = "Estudiante"; break;
+                case ("2") :   tipoString = "Docente"; break;
+                case ("3") :   tipoString =  "Administrativo"; break;
+                
+                    
+            }  
+            this.cmbTipo.addItem(identificacion+"|"+nombres+"-"+tipoString);  
+        }  
+     for ( Escenario objUsr : txtParsing1.lstEscenariosObj) {
+            String code = String.valueOf(objUsr.getIntEscenario());
+            String name = String.valueOf(objUsr.getStrNombre());
+            this.cmbTipo1.addItem(code+"-"+name);  
+        }  
+        this.cmbTipo.setSelectedIndex(0);
+        this.cmbTipo1.setSelectedIndex(0);
+
+    }
     /**
      * @param args the command line arguments
      */
@@ -73,11 +311,23 @@ public class frmPrestamos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmPrestamos().setVisible(true);
+                new frmPrestamos(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox cmbTipo;
+    private javax.swing.JComboBox cmbTipo1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
+    private javax.swing.JTable tblUsers;
+    private javax.swing.JTextField txtIdent1;
+    private javax.swing.JTextField txtIdent2;
     // End of variables declaration//GEN-END:variables
 }
